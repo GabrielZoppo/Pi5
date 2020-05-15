@@ -26,7 +26,7 @@ while True:
 		print(strftime("%a, %d %b %Y %H:%M:%S", localtime()))
 
 		params = "field1="+str(cpu_percent)
-    		publish.single(topic, payload=params, hostname=SERVER)
+		publish.single(topic,payload=params,hostname=SERVER)
 
 	except:
 		print("connection failed") # Em caso de erro de conexão
