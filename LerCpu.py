@@ -1,5 +1,4 @@
 import paho.mqtt.publish as publish
-
 import time
 from time import localtime, strftime
 
@@ -9,8 +8,9 @@ import subprocess
 SERVER = "mqtt.thingspeak.com"
 CHANNEL_ID = "1056037"
 WRITE_API_KEY = "HX28CZ5VZ46Z0PKU"
-
 topic = "channels/" + CHANNEL_ID + "/publish/" + WRITE_API_KEY
+
+
 sleep = 59 # Intervalo em segundos de cada postagem
 
 
@@ -26,10 +26,9 @@ while True:
 		print(strftime("%a, %d %b %Y %H:%M:%S", localtime()))
 
 		params = "field1="+str(cpu_percent)
-		
-        
+    		publish.single(topic, payload=params, hostname=SERVER)
 
 	except:
 		print("connection failed") # Em caso de erro de conexão
 
-	time.sleep(sleep)
+		time.sleep(sleep)
