@@ -7,7 +7,6 @@ import psutil
 import subprocess 
 
 SERVER = "mqtt.thingspeak.com"
-client = MQTTClient("umqtt_client", SERVER)
 CHANNEL_ID = "1056037"
 WRITE_API_KEY = "HX28CZ5VZ46Z0PKU"
 
@@ -27,7 +26,7 @@ while True:
 		print(strftime("%a, %d %b %Y %H:%M:%S", localtime()))
 
 		params = "field1="+str(cpu_percent)
-		client.publish(topic, payload = params)
+		
         
 
 	except:
